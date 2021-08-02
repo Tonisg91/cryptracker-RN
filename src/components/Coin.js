@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import PriceChange from './PriceChange';
 
 export default function Coin({ coin }) {
   const navigation = useNavigation();
@@ -16,16 +17,7 @@ export default function Coin({ coin }) {
     </View>
     <View>
       <Text style={styles.textPrice}>${coin.current_price}</Text>
-      <Text
-        style={[
-          styles.pricePercentage,
-          coin.price_change_percentage_24h > 0
-            ? styles.priceUp
-            : styles.priceDown,
-        ]}
-      >
-        {coin.price_change_percentage_24h.toFixed(2)}%
-      </Text>
+      <PriceChange price={coin.price_change_percentage_24h} />
     </View>
   </TouchableOpacity>)
 }
@@ -50,15 +42,6 @@ const styles = StyleSheet.create({
   textPrice: {
     color: "#fff",
     fontWeight: "bold",
-  },
-  pricePercentage: {
-    textAlign: "right",
-  },
-  priceUp: {
-    color: "#00B589",
-  },
-  priceDown: {
-    color: "#fc4422",
   },
   image: {
     width: 30,

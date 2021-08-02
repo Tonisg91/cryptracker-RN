@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "90%",
     justifyContent: "space-between",
-    marginTop: 30,
-    marginBottom: 10
+    marginHorizontal: 10
   },
   title: {
     fontSize: 20,
